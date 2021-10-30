@@ -3,11 +3,19 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/Home/Home/Home';
 import Login from './components/Home/Login/Login/Login';
 import NotFound from './components/Home/NotFound/NotFound';
+import AuthProvider from './components/contexts/AuthProvider';
+import Header from './components/Shared/Header/Header';
+import Services from './components/Home/Services/Services';
+import ServicesDetails from './components/Home/ServicesDetails/ServicesDetails';
+import PrivateRoute from './components/Home/Login/PrivateRoute/PrivateRoute';
+import Footer from './components/Shared/Footer/Footer';
 
 function App() {
   return (
     <div className="App">
+     <AuthProvider>
      <Router>
+       <Header></Header>
        <Switch>
          <Route exact path="/">
           <Home></Home>
@@ -15,6 +23,12 @@ function App() {
          <Route path="/home">
           <Home></Home>
          </Route>
+         <Route path="/services">
+          <Services></Services>
+         </Route>
+         <PrivateRoute path="/servicesDetails">
+         <ServicesDetails></ServicesDetails>
+         </PrivateRoute>
          <Route path="/login">
            <Login></Login>
          </Route>
@@ -23,7 +37,9 @@ function App() {
          </Route>
 
        </Switch>
+       <Footer></Footer>
      </Router>
+     </AuthProvider>
     </div>
   );
 }
