@@ -5,7 +5,7 @@
     align-items: center;
 }
 .service input, textarea{
-    width: 100%;
+    width: 50%;
     margin-bottom: 10px;
 }
 @media screen and (max-width: 992px) {

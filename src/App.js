@@ -9,6 +9,7 @@ import Services from './components/Home/Services/Services';
 import ServicesDetails from './components/Home/ServicesDetails/ServicesDetails';
 import PrivateRoute from './components/Home/Login/PrivateRoute/PrivateRoute';
 import Footer from './components/Shared/Footer/Footer';
+import AddService from './components/Home/AddService/AddService';
 
 function App() {
   return (
@@ -26,8 +27,11 @@ function App() {
          <Route path="/services">
           <Services></Services>
          </Route>
-         <PrivateRoute path="/servicesDetails">
+         <PrivateRoute path="/servicesDetails/:serviceId">
          <ServicesDetails></ServicesDetails>
+         </PrivateRoute>
+         <PrivateRoute path="/addService">
+            <AddService></AddService>
          </PrivateRoute>
          <Route path="/login">
            <Login></Login>

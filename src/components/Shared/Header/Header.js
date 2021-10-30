@@ -7,7 +7,7 @@ import useAuth from '../../hooks/useAuth';
 
 const Header = () => {
     const {user, signOutWithGoogle} = useAuth();
-    console.log(user);
+    // console.log(user);
     const defaultImg = ''; 
     return (
         <div>
@@ -27,6 +27,7 @@ const Header = () => {
                     <Navbar.Collapse className="justify-content-end">
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
                         <Nav.Link as={Link} to="/services">Tours</Nav.Link>
+                        <Nav.Link as={Link} to="/addService">Add Service</Nav.Link>
                         <Nav.Link as={Link} to="/servicesDetails">Destinations</Nav.Link>
                         
                         <Navbar.Brand href="#home">
