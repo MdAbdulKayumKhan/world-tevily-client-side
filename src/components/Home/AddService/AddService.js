@@ -32,10 +32,10 @@ const AddService = () => {
             <h2 className="bg-red">Add Service</h2>
             <div className="service">
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <input {...register("name", { required: true, maxLength: 20 })} placeholder="Tour Name" />
+                    <input {...register("name", { required: true})} placeholder="Tour Name" />
                     <input {...register("img")} placeholder="add img link" />
                     <textarea {...register("description")} placeholder="Description" />
-                    <input type="number" {...register("price")} placeholder="regular price" />
+                    <input  {...register("days")} placeholder="3 days/4 night" />
                     <input type="number" {...register("offer")} placeholder="offer price" />
                     <input type="submit" />
                 </form>

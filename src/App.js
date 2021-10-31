@@ -10,6 +10,9 @@ import ServicesDetails from './components/Home/ServicesDetails/ServicesDetails';
 import PrivateRoute from './components/Home/Login/PrivateRoute/PrivateRoute';
 import Footer from './components/Shared/Footer/Footer';
 import AddService from './components/Home/AddService/AddService';
+import MyBooking from './components/Home/MyBooking/MyBooking';
+import MaganeBooking from './components/Home/ManageBooking/MaganeBooking';
+import TourPackages from './components/Home/TourPackages/TourPackages';
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
          <Route path="/home">
           <Home></Home>
          </Route>
+         <Route path="/tourPackages">
+          <TourPackages></TourPackages>
+         </Route>
          <Route path="/services">
           <Services></Services>
          </Route>
@@ -32,6 +38,12 @@ function App() {
          </PrivateRoute>
          <PrivateRoute path="/addService">
             <AddService></AddService>
+         </PrivateRoute>
+         <PrivateRoute path="/myBooking">
+            <MyBooking></MyBooking>
+         </PrivateRoute>
+         <PrivateRoute path="/manageBooking">
+            <MaganeBooking></MaganeBooking>
          </PrivateRoute>
          <Route path="/login">
            <Login></Login>

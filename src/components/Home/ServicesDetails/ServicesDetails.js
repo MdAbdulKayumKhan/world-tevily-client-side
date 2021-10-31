@@ -16,11 +16,11 @@ const ServicesDetails = () => {
             .then(res => res.json())
             .then(data => setService(data))
     }, [])
-
+    const  serviceName = service?.name;
     // Post into bookingCollection
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data =>{
-         console.log(data)
+        //  console.log(data)
          fetch('http://localhost:5000/addBooking', {
              method: 'POST',
              headers:{
@@ -30,7 +30,7 @@ const ServicesDetails = () => {
          })
          .then(res => res.json())
          .then(booking =>{
-             console.log(booking)
+            //  console.log(booking)
              if(booking.insertedId){
                  alert('Booking Confirm Successfully');
                  reset();
@@ -40,35 +40,36 @@ const ServicesDetails = () => {
         
         };
     return (
-        <div>
-            <h1>this services: {serviceId}</h1>
-            <div class="container px-4">
-                <div class="row gx-5">
-                    <div class="col col-md-6 col-sm-12">
-                        <div class="p-3 border bg-light">
-                            <div class="card" style={{ width: '18rem' }}>
-                                <img src={service.img} class="card-img-top img-fluid" alt="..." />
+        <div className="mt-5 mb-5">
+            <h1 className="bg-light">BOOKING OPTIONS</h1>
+            <div className="container px-4">
+                <div className="row gx-5">
+                    <div className="col col-md-6 col-sm-12">
+                        <div className="p-3 border bg-light">
+                            <div className="card" style={{ width: '18rem' }}>
+                                <img src={service.img} className="card-img-top img-fluid" alt="..." />
                                 <h3>{service.name}</h3>
-                                <div class="card-body">
-                                    <p class="card-text">{service.description}</p>
+                                <div className="card-body">
+                                    <p className="card-text">{service.description}</p>
                                     <p><hr /></p>
-                                    <p>Regular Price: {service.price}</p>
+                                    <p>Duration : {service.days}</p>
                                     <p>Offer Price: {service.offer}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col col-md-6 col-sm-12">
-                        <div class="p-3 border bg-light">
-                            <p>{userName}</p>
-                            <p>{userEmail}</p>
+                    <div className="col col-md-6 col-sm-12">
+                        <div className="p-3 border bg-light">
+                           <div>
+                               <h3>Please Confirm Your Booking</h3>
+                           </div>
                             <div className="service">
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <input defaultValue={userName} {...register("userName", { required: true})} />
                                     <input defaultValue={userEmail} {...register("userEmail", { required: true})} />
+                                    <input defaultValue={serviceName} {...register("serviceName", { required: true})} />
                                     <input type="hidden" defaultValue={serviceId} {...register("serviceId", { required: true})} />
                                     <input type="hidden" defaultValue={status} {...register("status", { required: true})} />
-                                    <input defaultValue={service?.name} {...register("serviceName", { required: true})} />
                                     <textarea  {...register("Address", { required: true})} placeholder="Address" />
                                     <input  {...register("city", { required: true})} placeholder="City" />
                                     <input type="number" {...register("phone", { required: true})} placeholder="Phone Number" />

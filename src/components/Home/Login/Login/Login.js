@@ -1,11 +1,10 @@
 import React from 'react';
 import { useHistory, useLocation } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
-import Header from '../../../Shared/Header/Header';
 
 const Login = () => {
     
-    const {signInWithGoogle, signOutWithGoogle, user, } = useAuth();
+    const {signInWithGoogle, signOutWithGoogle } = useAuth();
    
     const location = useLocation();
     const history = useHistory();

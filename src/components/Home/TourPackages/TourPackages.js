@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Spinner } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
-import Slider from '../../Shared/Slider/Slider';
-import './Home.css';
 
-const Home = () => {
+const TourPackages = () => {
     const [services, setServices] = useState([]);
-    const [isLoadingHome, setIsLoadingHome] = useState(true);
-    const { user } = useAuth();
     
     
     useEffect(() => {
@@ -21,14 +16,8 @@ const Home = () => {
             })
                
     }, [])
-
-    // array sorting
-    // const reverseOrder = services.reverse();
-    const mainOffers = services.slice(0,6);
     return (
         <div>
-            <Slider></Slider>
-
             <div className="mt-5 mb-5 bg-light">
                 <h1>Popular Package</h1>
             </div>
@@ -37,7 +26,7 @@ const Home = () => {
                 <div className="card-deck">
                     <div className="row gx-5">
                         {
-                            mainOffers.map(service => (
+                            services.map(service => (
                                 <div key={service._id} className="card col-12 col-sm-12 col-md-4 col-lg-4 gap-4">
                                     <img className="card-img-top img-fluid" src={service.img} alt="Card cap" />
                                     <div className="card-body">
@@ -56,8 +45,9 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            
         </div>
     );
 };
 
-export default Home;
+export default TourPackages;
