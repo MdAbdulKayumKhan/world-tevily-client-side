@@ -12,16 +12,16 @@ const ServicesDetails = () => {
     let status = 'pending';
     // services get from servicesCollection
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${serviceId}`)
+        fetch(`https://lit-citadel-89673.herokuapp.com/services/${serviceId}`)
             .then(res => res.json())
             .then(data => setService(data))
-    }, [])
-    const  serviceName = service?.name;
+    }, [service])
+    // const  serviceName = service?.name;
     // Post into bookingCollection
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data =>{
-        //  console.log(data)
-         fetch('http://localhost:5000/addBooking', {
+         console.log(data)
+         fetch('https://lit-citadel-89673.herokuapp.com/addBooking', {
              method: 'POST',
              headers:{
                  'content-type': 'application/json'
@@ -67,7 +67,8 @@ const ServicesDetails = () => {
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <input defaultValue={userName} {...register("userName", { required: true})} />
                                     <input defaultValue={userEmail} {...register("userEmail", { required: true})} />
-                                    <input defaultValue={serviceName} {...register("serviceName", { required: true})} />
+                                    <input defaultValue={service?.name} {...register("serviceName", { required: true})} />
+                                    {/* <input defaultValue={service?.name} {...register("serviceName")} /> */}
                                     <input type="hidden" defaultValue={serviceId} {...register("serviceId", { required: true})} />
                                     <input type="hidden" defaultValue={status} {...register("status", { required: true})} />
                                     <textarea  {...register("Address", { required: true})} placeholder="Address" />

@@ -15,6 +15,26 @@ const MyBooking = () => {
             console.log(result)
             setBooking(result)})
     }, [email])
+
+    const handleDelete = id => {
+        // console.log(id);
+        const deleteNow = window.confirm('Are Sure wants to delete?');
+        if(deleteNow){
+            fetch(`https://lit-citadel-89673.herokuapp.com/manageServices/${id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data =>{
+            if(data.deletedCount){
+                alert('Booking Deleted Successfully')
+                const remainingBooking = booking.filter(booked => booked._id !== id);
+                setBooking(remainingBooking);
+
+            }
+        })
+        }
+    }
+
     let i = 1;
     return (
         <div>
@@ -27,6 +47,7 @@ const MyBooking = () => {
                             <th scope="col">Tourist</th>
                             <th scope="col">Phone</th>
                             <th scope="col">Status</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,7 +57,8 @@ const MyBooking = () => {
                                 <td>{booked.serviceName}</td>
                                 <td>{booked.userName}</td>
                                 <td>{booked.phone}</td>
-                                <td><Button>{booked.status}</Button></td>
+                                <td><h5>{booked.status}</h5></td>
+                                <td><Button onClick={()=> handleDelete(booked._id)}> Delete</Button></td>
                             </tr>))
                         }
                         
