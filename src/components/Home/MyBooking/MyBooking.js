@@ -43,7 +43,7 @@ const MyBooking = () => {
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Tour</th>
+                            <th scope="col">Tour Name</th>
                             <th scope="col">Tourist</th>
                             <th scope="col">Phone</th>
                             <th scope="col">Status</th>

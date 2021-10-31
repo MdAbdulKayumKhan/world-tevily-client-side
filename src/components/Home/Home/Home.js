@@ -104,9 +104,7 @@ const Home = () => {
                                         <span className="section-title__tagline">Get to know us</span>
                                         <h2 className="section-title__title">Plan Your Trip with World-Trevily</h2>
                                     </div>
-                                    <p className="about-one__right-text">There are many variations of passages of available but the
-                                        majority have suffered alteration in some form, by injected hum randomised words which
-                                        don't look even slightly.</p>
+                                    <p className="about-one__right-text">World-Trevily Tour Operator is a leading local and global tour operators in Bangladesh</p>
                                     <ul className="list-unstyled about-one__points">
                                         <li>
                                             <div className="icon">
